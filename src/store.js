@@ -7,7 +7,7 @@ export const store = new Vuex.Store({
     state: {
         userId: null,
         solvedProblems: null,
-        timeScope: []
+        timeScope: null
 
     },
     mutations: {

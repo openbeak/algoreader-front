@@ -37,16 +37,18 @@
         beforeUpdate() {
             // this.sortedProblems.sort((a) =>{return a['time'];});
             console.log(this.getSolvedProblems);
-            const sorting = this.getSolvedProblems
+            const sorting = this.getSolvedProblems // 시간 순서대로 오름차순 정렬
                 .sort((a,b) => {
                     return a['time']-b['time'];
                 })
 
             let timeScope = [];
             timeScope.push(sorting[0]['time']);
-            timeScope.push(sorting[timeScope.length-1]['time']);
+            timeScope.push(sorting[sorting.length-1]['time']);
             this.$store.commit('setTimeScope', timeScope);
+            console.log(timeScope);
 
+            // 문제 유형별로 많이 푼 문제부터 내림차순 정렬
             this.sortedProblems = JsonToArray(groupBy(sorting, 'category'))
                 .sort((a,b) => {
                     return b['value'].length - a['value'].length;
@@ -94,11 +96,12 @@
         flex-direction: row;
     }
     #category {
-        flex-grow: 1;
+        width: 150px;
+        font-size: 12px;
 
     }
     #bubbles {
-        flex-grow: 3;
+        flex-grow: 1;
     }
 
     .section1 {
@@ -112,18 +115,18 @@
     .section2 {
         border: 1px solid yellow;
         display: flex;
-        justify-content: center;
         align-content: center;
         flex-direction: column;
     }
 
     .category {
         flex-grow: 1;
+        justify-content: center;
 
     }
 
     .points {
-        flex-grow: 3;
+        flex-grow: 1;
         font-size: 10px;
         display: flex;
         flex-direction: row;
