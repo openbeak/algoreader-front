@@ -1,6 +1,7 @@
 <template>
     <div id="algoMap">
         <h1>This is Algorithm Map</h1>
+        <h2>ID : {{this.$store.state.userId}}</h2>
     </div>
 </template>
 

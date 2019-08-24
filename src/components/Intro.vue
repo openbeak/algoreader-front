@@ -1,7 +1,8 @@
 <template>
     <div id="intro">
         <h1>Hello World</h1>
-        <button v-on:click="scrollDown">ScrollDown</button>
+        <input v-model="userId" placeholder="write your id">
+        <button v-on:click="submitId">Submit</button>
     </div>
 </template>
 
@@ -9,13 +10,20 @@
     export default {
         name: "Intro",
         methods: {
-            scrollDown: function () {
-                console.log('works');
+            submitId: function () {
+                this.$store.commit('setUserId', this.userId);
                 window.scrollTo({
                     top: document.body.scrollHeight,
                     left: 0,
                     behavior: 'smooth'
                 });
+            }
+        },
+        computed: {
+        },
+        data() {
+            return {
+                userId: null
             }
         }
     }
