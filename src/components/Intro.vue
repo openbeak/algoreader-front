@@ -1,6 +1,6 @@
 <template>
     <div id="intro">
-        <p id="title"><b>Algoreader</b><br>Be a leader by Reading Algorithm</p>
+        <!-- <p id="title"><b>Algoreader</b><br>Be a leader by Reading Algorithm</p> -->
         <div id="inputSection">
             <div style="display: flex; flex-direction: row;">
                 <input v-model="userId" placeholder="write your id">
@@ -783,7 +783,7 @@
         flex-grow: 1;
         padding: 10px;
         border: 1px solid white;
-        background-color: #f9a1ba;
+        background-color : #2ed3e6;
         text-align: center;
         font-size: 16px;
         color: #1c1d20;
@@ -805,8 +805,8 @@
 
     #inputSection {
         position: absolute;
-        left: 63%;
-        top: 75%;
+        left: 33%;
+        top: 48%;
         width: 420px;
         height: 300px;
 
@@ -817,7 +817,7 @@
         border: 0;
         margin-top: 10px;
         background-color: transparent;
-        text-align: left;
+        text-align: center;
         font-size: 16px;
         color: #c6c6c6;
     }
