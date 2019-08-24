@@ -1,5 +1,5 @@
 <template>
-    <div class="dot" v-bind:style="{left: left}"></div>
+    <div class="dot" v-bind:style="{left: left, backgroundColor: color}"></div>
 </template>
 
 <script>
@@ -9,9 +9,10 @@
         name: "Point",
         data: {
             time: null,
-            left: ''
+            left: '',
+            color: ''
         },
-        props: ['info'],
+        props: ['info','colorIdx'],
         computed: {
             ...mapGetters([
                 'getMaxTime',
@@ -19,18 +20,37 @@
             ])
         },
         beforeMount() {
-            const min = this.getMinTime;
-            const max = this.getMaxTime;
-            this.time = this.info.time;
+            const min = TimeStampNumChange(this.getMinTime);
+            const max = TimeStampNumChange(this.getMaxTime);
+            this.time = TimeStampNumChange(this.info.time);
             // 비율을 계산해서 점을 이동시켜 줌
-            this.left = 180+1000*leftProportion(min,max,this.time)+'px';
-            console.log(this.left);
+            this.left = 180+900*leftProportion(min,max,this.time)+'px';
+            // 색상을 인덱스에 따라 구분
+            this.color = indexColor(this.colorIdx);
         },
     }
 
     // 최댓값이면 1, 최솟값이면 0, 그 사이에서 비율만큼 소수를 반환하는 메소드
     const leftProportion = (min, max, mine) => {
         return (mine-min)/(max-min);
+    }
+
+    const indexColor = (index) => {
+        if(index === 0) { return '#f0c54d'}
+        else if(index === 1) { return '#f0eb4d'}
+        else if(index === 2) { return '#bdf056'}
+        else if(index === 3) { return '#87f056'}
+        else if(index === 4) { return '#56f082'}
+        else if(index === 5) { return '#27f0dc'}
+        else if(index === 6) { return '#2ed3e6'}
+        else if(index === 7) { return '#2abcf0'}
+        else if(index === 8) { return '#3560f0'}
+        else if(index === 9) { return '#353bf0'}
+        else return '#0000000'
+    }
+
+    const TimeStampNumChange = (num) => {
+        return num*12*30/1000000 + 30*((num%1000000)/10000) + ((num%10000)/100)
     }
 </script>
 
@@ -39,8 +59,8 @@
         position: absolute;
         width: 15px;
         height: 15px;
-        background-color: #bbb;
         border-radius: 50%;
         display: inline-block;
+        margin-top: 22px;
     }
 </style>

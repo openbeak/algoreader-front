@@ -4,11 +4,11 @@
         <h2>ID : {{this.getUserId}}</h2>
         <div id="mapArea">
             <div id="category" class="section1">
-                <div v-for="pb in this.sortedProblems" class="section2 category">{{pb['category']}}</div>
+                <div v-for="(pb, index) in this.sortedProblems" class="section2 category">{{index+1}} : {{pb['category']}}</div>
             </div>
             <div id="bubbles" class="section1">
-                <div v-for="pb in this.sortedProblems" class="section2 points">
-                    <Point v-for="p in pb['value']" :info="p" />
+                <div v-for="(pb, index) in this.sortedProblems" class="section2 points">
+                    <Point v-for="p in pb['value']" :info="p" :colorIdx="index"/>
                 </div>
             </div>
         </div>
@@ -36,7 +36,7 @@
         },
         beforeUpdate() {
             // this.sortedProblems.sort((a) =>{return a['time'];});
-            console.log(this.getSolvedProblems);
+            //console.log(this.getSolvedProblems);
             const sorting = this.getSolvedProblems // 시간 순서대로 오름차순 정렬
                 .sort((a,b) => {
                     return a['time']-b['time'];
@@ -46,14 +46,14 @@
             timeScope.push(sorting[0]['time']);
             timeScope.push(sorting[sorting.length-1]['time']);
             this.$store.commit('setTimeScope', timeScope);
-            console.log(timeScope);
+            //console.log(timeScope);
 
             // 문제 유형별로 많이 푼 문제부터 내림차순 정렬
             this.sortedProblems = JsonToArray(groupBy(sorting, 'category'))
                 .sort((a,b) => {
                     return b['value'].length - a['value'].length;
                 });
-            console.log(this.sortedProblems);
+            // console.log(this.sortedProblems);
         }
     }
 
@@ -69,6 +69,7 @@
         let array = [];
         Object.keys(data).forEach(key => {
            array.push({ 'category': key, 'value':data[key]})
+            if(array.length === 10) { return array; }
         });
         return array;
     }
@@ -113,7 +114,6 @@
     }
 
     .section2 {
-        border: 1px solid yellow;
         display: flex;
         align-content: center;
         flex-direction: column;
