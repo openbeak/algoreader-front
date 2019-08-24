@@ -1,7 +1,8 @@
 <template>
     <div id="algoMap">
-        <h1 style="margin-top: 0; padding-top: 30px;">This is Algorithm Map</h1>
-        <h2>ID : {{this.getUserId}}</h2>
+        <h4 style="position : relative ; left : 30%;">추천문제</h4>
+        <h2 class="user_name">ID : {{this.getUserId}}</h2>
+        <div class="recommend_box">1194</div>
         <div id="mapArea">
             <div id="category" class="section1">
                 <div v-for="(pb, index) in this.sortedProblems" class="section2 category" style="text-align: left;">{{index+1}} : {{pb['category']}}</div>
@@ -101,6 +102,7 @@
 
 <style scoped>
     #algoMap {
+        background-image: url("../assets/background-graph.png");
         height: 100vh;
         background-color: #0d2940;
         border-top: 1px solid white;
@@ -146,6 +148,23 @@
         font-size: 10px;
         display: flex;
         flex-direction: row;
+    }
+
+    .user_name {
+        position : relative;
+        right : 40%;
+        color : #27f0dc;
+    }
+
+    .recommend_box{
+        position : relative;
+        left :80%;
+        width: 72px;
+        padding-top : 25px;
+        padding-bottom : 25px;
+        border-radius: 27px;
+        border: solid 2px #ffffff;
+        background-color: rgba(255, 255, 255, 0.3);
     }
 
 </style>
