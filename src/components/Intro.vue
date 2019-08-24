@@ -21,7 +21,8 @@
             'category': 'Dynamic Programming',
             'collectCount': 12000,
             'submitCount': 4900,
-            'collectRate': 44.90
+            'collectRate': 44.90,
+            'time':19032118
         },
         {
             'number': 3,
@@ -29,7 +30,8 @@
             'category': 'Greedy',
             'collectCount': 8800,
             'submitCount': 2340,
-            'collectRate': 25.69
+            'collectRate': 25.69,
+            'time':19032116
         },
         {
             'number': 8,
@@ -37,7 +39,8 @@
             'category': 'BFS',
             'collectCount': 4230,
             'submitCount': 1567,
-            'collectRate': 34.32
+            'collectRate': 34.32,
+            'time':19032130
         },
         {
             'number': 11,
@@ -45,7 +48,8 @@
             'category': 'Simulation',
             'collectCount': 10540,
             'submitCount': 2109,
-            'collectRate': 19.03
+            'collectRate': 19.03,
+            'time':19032150
         },
         {
             'number': 18,
@@ -53,7 +57,8 @@
             'category': 'Brute Force',
             'collectCount': 6800,
             'submitCount': 3799,
-            'collectRate': 55.40
+            'collectRate': 55.40,
+            'time':19032121
         },
         {
             'number': 21,
@@ -61,7 +66,8 @@
             'category': 'Dynamic Programming',
             'collectCount': 12000,
             'submitCount': 4900,
-            'collectRate': 44.90
+            'collectRate': 44.90,
+            'time':19032114
         },
         {
             'number': 23,
@@ -69,7 +75,8 @@
             'category': 'DFS',
             'collectCount': 8800,
             'submitCount': 2340,
-            'collectRate': 25.69
+            'collectRate': 25.69,
+            'time':19032154
         },
         {
             'number': 28,
@@ -77,7 +84,8 @@
             'category': 'Greedy',
             'collectCount': 4230,
             'submitCount': 1567,
-            'collectRate': 34.32
+            'collectRate': 34.32,
+            'time':19032134
         },
         {
             'number': 31,
@@ -85,7 +93,8 @@
             'category': 'Simulation',
             'collectCount': 10540,
             'submitCount': 2109,
-            'collectRate': 19.03
+            'collectRate': 19.03,
+            'time':19032122
         },
         {
             'number': 38,
@@ -93,7 +102,8 @@
             'category': 'Dynamic Programming',
             'collectCount': 6800,
             'submitCount': 3799,
-            'collectRate': 55.40
+            'collectRate': 55.40,
+            'time':19032111
         },
     ];
 

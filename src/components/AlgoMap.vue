@@ -3,11 +3,13 @@
         <h1 style="margin-top: 0; padding-top: 30px;">This is Algorithm Map</h1>
         <h2>ID : {{this.getUserId}}</h2>
         <div id="mapArea">
-            <div id="bubbles" class="section1">
-                <div class="section2"></div>
-            </div>
             <div id="category" class="section1">
-                <div class="section2"></div>
+                <div v-for="pb in this.sortedProblems" class="section2 category">{{pb['category']}}</div>
+            </div>
+            <div id="bubbles" class="section1">
+                <div v-for="pb in this.sortedProblems" class="section2 points">
+                    <Point v-for="p in pb['value']" :info="p" />
+                </div>
             </div>
         </div>
     </div>
@@ -15,9 +17,14 @@
 
 <script>
     import { mapGetters } from 'vuex';
+    import Point from "./Point";
 
     export default {
         name: "algoMap",
+        components: {Point},
+        data: {
+          sortedProblems: []
+        },
         computed: {
             ...mapGetters([
                 'getUserId',
@@ -27,18 +34,24 @@
         methods: {
 
         },
-        updated() {
-            console.log(groupBy(this.getSolvedProblems,'category'));
-            console.log(ArrayToJson(JsonToArray(groupBy(this.getSolvedProblems, 'category'))
-                        .sort((a,b) => {
-                            if(a['value'].length > b['value'].length) {
-                                return -1;
-                            } else if(a['value'].length === b['value'].length) {
-                                return 0;
-                            } else {
-                                return 1;
-                            }
-                        }),'category'));
+        beforeUpdate() {
+            // this.sortedProblems.sort((a) =>{return a['time'];});
+            console.log(this.getSolvedProblems);
+            const sorting = this.getSolvedProblems
+                .sort((a,b) => {
+                    return a['time']-b['time'];
+                })
+
+            let timeScope = [];
+            timeScope.push(sorting[0]['time']);
+            timeScope.push(sorting[timeScope.length-1]['time']);
+            this.$store.commit('setTimeScope', timeScope);
+
+            this.sortedProblems = JsonToArray(groupBy(sorting, 'category'))
+                .sort((a,b) => {
+                    return b['value'].length - a['value'].length;
+                });
+            console.log(this.sortedProblems);
         }
     }
 
@@ -58,6 +71,7 @@
         return array;
     }
 
+    // 이걸 왜 만들었지?
     const ArrayToJson = (data, key) => {
         let json = {};
         data.forEach(el => {
@@ -79,11 +93,11 @@
         height: 70vh;
         flex-direction: row;
     }
-    #bubbles {
+    #category {
         flex-grow: 1;
 
     }
-    #category {
+    #bubbles {
         flex-grow: 3;
     }
 
@@ -91,9 +105,28 @@
         height: 100%;
         border: 1px solid white;
         margin: 5px;
+        display: flex;
+        flex-direction: column;
     }
 
     .section2 {
+        border: 1px solid yellow;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        flex-direction: column;
+    }
+
+    .category {
+        flex-grow: 1;
 
     }
+
+    .points {
+        flex-grow: 3;
+        font-size: 10px;
+        display: flex;
+        flex-direction: row;
+    }
+
 </style>

@@ -6,7 +6,8 @@ Vue.use(Vuex);
 export const store = new Vuex.Store({
     state: {
         userId: null,
-        solvedProblems: null
+        solvedProblems: null,
+        timeScope: []
 
     },
     mutations: {
@@ -15,6 +16,9 @@ export const store = new Vuex.Store({
         },
         setSolvedProblems(state, payload) {
             state.solvedProblems = payload;
+        },
+        setTimeScope(state, payload) {
+            state.timeScope = payload;
         }
     },
     actions: {
@@ -24,8 +28,14 @@ export const store = new Vuex.Store({
         getUserId: state => {
             return state.userId;
         },
-        getSolvedProblems : state => {
+        getSolvedProblems: state => {
             return state.solvedProblems;
+        },
+        getMaxTime: state => {
+            return state.timeScope[1];
+        },
+        getMinTime: state => {
+            return state.timeScope[0];
         }
     }
 });
