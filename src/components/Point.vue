@@ -1,5 +1,5 @@
 <template>
-        <div class="dot" v-bind:style="{left: left}"></div>
+    <div class="dot" v-bind:style="{left: left}"></div>
 </template>
 
 <script>
@@ -23,7 +23,7 @@
             const max = this.getMaxTime;
             this.time = this.info.time;
             // 비율을 계산해서 점을 이동시켜 줌
-            this.left = 50+700*leftProportion(min,max,this.time)+'px';
+            this.left = 180+1000*leftProportion(min,max,this.time)+'px';
             console.log(this.left);
         },
     }
@@ -36,12 +36,11 @@
 
 <style scoped>
     .dot {
-        position: relative;
+        position: absolute;
         width: 15px;
         height: 15px;
         background-color: #bbb;
         border-radius: 50%;
         display: inline-block;
-        margin: auto 0;
     }
 </style>

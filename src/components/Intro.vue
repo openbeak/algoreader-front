@@ -105,6 +105,96 @@
             'collectRate': 55.40,
             'time':19032111
         },
+        {
+            'number': 41,
+            'name': '더미 문제1',
+            'category': 'Dynamic Programming',
+            'collectCount': 12000,
+            'submitCount': 4900,
+            'collectRate': 44.90,
+            'time':19012118
+        },
+        {
+            'number': 43,
+            'name': '더미 문제2',
+            'category': 'Greedy',
+            'collectCount': 8800,
+            'submitCount': 2340,
+            'collectRate': 25.69,
+            'time':19052116
+        },
+        {
+            'number': 48,
+            'name': '더미 문제3',
+            'category': 'BFS',
+            'collectCount': 4230,
+            'submitCount': 1567,
+            'collectRate': 34.32,
+            'time':19052130
+        },
+        {
+            'number': 51,
+            'name': '더미 문제4',
+            'category': 'Simulation',
+            'collectCount': 10540,
+            'submitCount': 2109,
+            'collectRate': 19.03,
+            'time':19022150
+        },
+        {
+            'number': 58,
+            'name': '더미 문제5',
+            'category': 'Sorting',
+            'collectCount': 6800,
+            'submitCount': 3799,
+            'collectRate': 55.40,
+            'time':19042121
+        },
+        {
+            'number': 61,
+            'name': '더미 문제6',
+            'category': 'Dynamic Programming',
+            'collectCount': 12000,
+            'submitCount': 4900,
+            'collectRate': 44.90,
+            'time':19042114
+        },
+        {
+            'number': 63,
+            'name': '더미 문제7',
+            'category': 'Binary Search',
+            'collectCount': 8800,
+            'submitCount': 2340,
+            'collectRate': 25.69,
+            'time':19032154
+        },
+        {
+            'number': 68,
+            'name': '더미 문제8',
+            'category': 'Greedy',
+            'collectCount': 4230,
+            'submitCount': 1567,
+            'collectRate': 34.32,
+            'time':19032134
+        },
+        {
+            'number': 71,
+            'name': '더미 문제9',
+            'category': 'Binary Search',
+            'collectCount': 10540,
+            'submitCount': 2109,
+            'collectRate': 19.03,
+            'time':19032122
+        },
+        {
+            'number': 78,
+            'name': '더미 문제10',
+            'category': 'Dynamic Programming',
+            'collectCount': 6800,
+            'submitCount': 3799,
+            'collectRate': 55.40,
+            'time':19032111
+        },
     ];
 
     export default {
