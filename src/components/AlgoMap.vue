@@ -1,6 +1,6 @@
 <template>
     <div id="algoMap">
-        <h1>This is Algorithm Map</h1>
+        <h1 style="margin-top: 0; padding-top: 30px;">This is Algorithm Map</h1>
         <h2>ID : {{this.$store.state.userId}}</h2>
         <div id="mapArea">
             <div id="bubbles" class="section1">
@@ -21,8 +21,10 @@
 
 <style scoped>
     #algoMap {
-        border: 1px solid blue;
-        height: 98vh;
+        height: 100vh;
+        background-color: #0d2940;
+        border-top: 1px solid white;
+        color: white;
     }
     #mapArea {
         display: flex;
@@ -30,16 +32,16 @@
         flex-direction: row;
     }
     #bubbles {
-        flex-grow: 3;
+        flex-grow: 1;
 
     }
     #category {
-        flex-grow: 1;
+        flex-grow: 3;
     }
 
     .section1 {
         height: 100%;
-        border: 1px solid green;
+        border: 1px solid white;
         margin: 5px;
     }
 
