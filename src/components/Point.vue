@@ -1,5 +1,5 @@
 <template>
-    <div class="dot" v-bind:style="{left: left, backgroundColor: color}"></div>
+    <div class="dot" v-bind:style="{left: left, backgroundColor: color, opacity: opacity}"></div>
 </template>
 
 <script>
@@ -10,7 +10,8 @@
         data: {
             time: null,
             left: '',
-            color: ''
+            color: '',
+            opacity: ''
         },
         props: ['info','colorIdx'],
         computed: {
@@ -24,9 +25,10 @@
             const max = TimeStampNumChange(this.getMaxTime);
             this.time = TimeStampNumChange(this.info.time);
             // 비율을 계산해서 점을 이동시켜 줌
-            this.left = 180+900*leftProportion(min,max,this.time)+'px';
+            this.left = 280+1000*leftProportion(min,max,this.time)+'px';
             // 색상을 인덱스에 따라 구분
             this.color = indexColor(this.colorIdx);
+            this.opacity = 1-this.info.collectRate/100;
         },
     }
 
@@ -57,10 +59,10 @@
 <style scoped>
     .dot {
         position: absolute;
-        width: 15px;
-        height: 15px;
+        width: 18px;
+        height: 18px;
         border-radius: 50%;
         display: inline-block;
-        margin-top: 22px;
+        margin-top: 21px;
     }
 </style>

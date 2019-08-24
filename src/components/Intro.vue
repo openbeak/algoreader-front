@@ -375,6 +375,366 @@
             'collectRate': 55.40,
             'time':18012111
         },
+        {
+            'number': 301,
+            'name': '더미 문제1',
+            'category': 'Dynamic Programming',
+            'collectCount': 12000,
+            'submitCount': 4900,
+            'collectRate': 44.90,
+            'time':17032118
+        },
+        {
+            'number': 303,
+            'name': '더미 문제2',
+            'category': 'Greedy',
+            'collectCount': 8800,
+            'submitCount': 2340,
+            'collectRate': 25.69,
+            'time':19031216
+        },
+        {
+            'number': 308,
+            'name': '더미 문제3',
+            'category': 'Data Structure',
+            'collectCount': 4230,
+            'submitCount': 1567,
+            'collectRate': 34.32,
+            'time':17082130
+        },
+        {
+            'number': 311,
+            'name': '더미 문제4',
+            'category': 'Math',
+            'collectCount': 10540,
+            'submitCount': 2109,
+            'collectRate': 19.03,
+            'time':19030050
+        },
+        {
+            'number': 318,
+            'name': '더미 문제5',
+            'category': 'Brute Force',
+            'collectCount': 6800,
+            'submitCount': 3799,
+            'collectRate': 55.40,
+            'time':19030021
+        },
+        {
+            'number': 321,
+            'name': '더미 문제6',
+            'category': 'Dynamic Programming',
+            'collectCount': 12000,
+            'submitCount': 4900,
+            'collectRate': 44.90,
+            'time':18032114
+        },
+        {
+            'number': 323,
+            'name': '더미 문제7',
+            'category': 'DFS',
+            'collectCount': 8800,
+            'submitCount': 2340,
+            'collectRate': 25.69,
+            'time':17032154
+        },
+        {
+            'number': 328,
+            'name': '더미 문제8',
+            'category': 'Greedy',
+            'collectCount': 4230,
+            'submitCount': 1567,
+            'collectRate': 34.32,
+            'time':17082134
+        },
+        {
+            'number': 331,
+            'name': '더미 문제9',
+            'category': 'Simulation',
+            'collectCount': 10540,
+            'submitCount': 2109,
+            'collectRate': 19.03,
+            'time':19022122
+        },
+        {
+            'number': 338,
+            'name': '더미 문제10',
+            'category': 'Tree',
+            'collectCount': 6800,
+            'submitCount': 3799,
+            'collectRate': 55.40,
+            'time':17032111
+        },
+        {
+            'number': 341,
+            'name': '더미 문제1',
+            'category': 'Dynamic Programming',
+            'collectCount': 12000,
+            'submitCount': 4900,
+            'collectRate': 44.90,
+            'time':19032118
+        },
+        {
+            'number': 343,
+            'name': '더미 문제2',
+            'category': 'Greedy',
+            'collectCount': 8800,
+            'submitCount': 2340,
+            'collectRate': 25.69,
+            'time':19052116
+        },
+        {
+            'number': 348,
+            'name': '더미 문제3',
+            'category': 'BFS',
+            'collectCount': 4230,
+            'submitCount': 1567,
+            'collectRate': 34.32,
+            'time':19052130
+        },
+        {
+            'number': 351,
+            'name': '더미 문제4',
+            'category': 'Simulation',
+            'collectCount': 10540,
+            'submitCount': 2109,
+            'collectRate': 19.03,
+            'time':19042150
+        },
+        {
+            'number': 358,
+            'name': '더미 문제5',
+            'category': 'Sorting',
+            'collectCount': 6800,
+            'submitCount': 3799,
+            'collectRate': 55.40,
+            'time':19042121
+        },
+        {
+            'number': 361,
+            'name': '더미 문제6',
+            'category': 'Dynamic Programming',
+            'collectCount': 12000,
+            'submitCount': 4900,
+            'collectRate': 44.90,
+            'time':19122114
+        },
+        {
+            'number': 363,
+            'name': '더미 문제7',
+            'category': 'Binary Search',
+            'collectCount': 8800,
+            'submitCount': 2340,
+            'collectRate': 25.69,
+            'time':19032154
+        },
+        {
+            'number': 368,
+            'name': '더미 문제8',
+            'category': 'Greedy',
+            'collectCount': 4230,
+            'submitCount': 1567,
+            'collectRate': 34.32,
+            'time':19032134
+        },
+        {
+            'number': 371,
+            'name': '더미 문제9',
+            'category': 'Binary Search',
+            'collectCount': 10540,
+            'submitCount': 2109,
+            'collectRate': 19.03,
+            'time':19032122
+        },
+        {
+            'number': 378,
+            'name': '더미 문제10',
+            'category': 'Binary Search',
+            'collectCount': 6800,
+            'submitCount': 3799,
+            'collectRate': 55.40,
+            'time':19032111
+        },
+        {
+            'number': 401,
+            'name': '더미 문제1',
+            'category': 'Binary Search',
+            'collectCount': 12000,
+            'submitCount': 4900,
+            'collectRate': 44.90,
+            'time':18112118
+        },
+        {
+            'number': 403,
+            'name': '더미 문제2',
+            'category': 'Greedy',
+            'collectCount': 8800,
+            'submitCount': 2340,
+            'collectRate': 25.69,
+            'time':18070116
+        },
+        {
+            'number': 408,
+            'name': '더미 문제3',
+            'category': 'Math',
+            'collectCount': 4230,
+            'submitCount': 1567,
+            'collectRate': 34.32,
+            'time':18042130
+        },
+        {
+            'number': 411,
+            'name': '더미 문제4',
+            'category': 'Simulation',
+            'collectCount': 10540,
+            'submitCount': 2109,
+            'collectRate': 19.03,
+            'time':19102150
+        },
+        {
+            'number': 418,
+            'name': '더미 문제5',
+            'category': 'Brute Force',
+            'collectCount': 6800,
+            'submitCount': 3799,
+            'collectRate': 55.40,
+            'time':18022121
+        },
+        {
+            'number': 421,
+            'name': '더미 문제6',
+            'category': 'Dynamic Programming',
+            'collectCount': 12000,
+            'submitCount': 4900,
+            'collectRate': 44.90,
+            'time':19082114
+        },
+        {
+            'number': 423,
+            'name': '더미 문제7',
+            'category': 'DFS',
+            'collectCount': 8800,
+            'submitCount': 2340,
+            'collectRate': 25.69,
+            'time':19032154
+        },
+        {
+            'number': 428,
+            'name': '더미 문제8',
+            'category': 'Greedy',
+            'collectCount': 4230,
+            'submitCount': 1567,
+            'collectRate': 34.32,
+            'time':18112134
+        },
+        {
+            'number': 431,
+            'name': '더미 문제9',
+            'category': 'Math',
+            'collectCount': 10540,
+            'submitCount': 2109,
+            'collectRate': 19.03,
+            'time':18052022
+        },
+        {
+            'number': 438,
+            'name': '더미 문제10',
+            'category': 'Dynamic Programming',
+            'collectCount': 6800,
+            'submitCount': 3799,
+            'collectRate': 55.40,
+            'time':19032111
+        },
+        {
+            'number': 441,
+            'name': '더미 문제1',
+            'category': 'Dynamic Programming',
+            'collectCount': 12000,
+            'submitCount': 4900,
+            'collectRate': 44.90,
+            'time':19012518
+        },
+        {
+            'number': 443,
+            'name': '더미 문제2',
+            'category': 'Greedy',
+            'collectCount': 8800,
+            'submitCount': 2340,
+            'collectRate': 25.69,
+            'time':19121116
+        },
+        {
+            'number': 448,
+            'name': '더미 문제3',
+            'category': 'BFS',
+            'collectCount': 4230,
+            'submitCount': 1567,
+            'collectRate': 34.32,
+            'time':19052130
+        },
+        {
+            'number': 451,
+            'name': '더미 문제4',
+            'category': 'Simulation',
+            'collectCount': 10540,
+            'submitCount': 2109,
+            'collectRate': 19.03,
+            'time':19092150
+        },
+        {
+            'number': 458,
+            'name': '더미 문제5',
+            'category': 'Sorting',
+            'collectCount': 6800,
+            'submitCount': 3799,
+            'collectRate': 55.40,
+            'time':19112121
+        },
+        {
+            'number': 461,
+            'name': '더미 문제6',
+            'category': 'Dynamic Programming',
+            'collectCount': 12000,
+            'submitCount': 4900,
+            'collectRate': 44.90,
+            'time':19042114
+        },
+        {
+            'number': 463,
+            'name': '더미 문제7',
+            'category': 'Binary Search',
+            'collectCount': 8800,
+            'submitCount': 2340,
+            'collectRate': 25.69,
+            'time':19032154
+        },
+        {
+            'number': 468,
+            'name': '더미 문제8',
+            'category': 'Greedy',
+            'collectCount': 4230,
+            'submitCount': 1567,
+            'collectRate': 34.32,
+            'time':19030134
+        },
+        {
+            'number': 471,
+            'name': '더미 문제9',
+            'category': 'Binary Search',
+            'collectCount': 10540,
+            'submitCount': 2109,
+            'collectRate': 19.03,
+            'time':19032122
+        },
+        {
+            'number': 478,
+            'name': '더미 문제10',
+            'category': 'Dynamic Programming',
+            'collectCount': 6800,
+            'submitCount': 3799,
+            'collectRate': 55.40,
+            'time':18012111
+        },
     ];
 
     export default {

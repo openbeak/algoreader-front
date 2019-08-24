@@ -4,13 +4,25 @@
         <h2>ID : {{this.getUserId}}</h2>
         <div id="mapArea">
             <div id="category" class="section1">
-                <div v-for="(pb, index) in this.sortedProblems" class="section2 category">{{index+1}} : {{pb['category']}}</div>
+                <div v-for="(pb, index) in this.sortedProblems" class="section2 category" style="text-align: left;">{{index+1}} : {{pb['category']}}</div>
             </div>
             <div id="bubbles" class="section1">
                 <div v-for="(pb, index) in this.sortedProblems" class="section2 points">
                     <Point v-for="p in pb['value']" :info="p" :colorIdx="index"/>
                 </div>
             </div>
+            <svg width="1200" height="600">
+                <line x1="10" y1="35" x2="1160" y2="35" style="stroke:rgb(255,255,255);stroke-width:1;"></line>
+                <line x1="10" y1="90" x2="1160" y2="90" style="stroke:rgb(255,255,255);stroke-width:1;"></line>
+                <line x1="10" y1="145" x2="1160" y2="145" style="stroke:rgb(255,255,255);stroke-width:1;"></line>
+                <line x1="10" y1="200" x2="1160" y2="200" style="stroke:rgb(255,255,255);stroke-width:1;"></line>
+                <line x1="10" y1="255" x2="1160" y2="255" style="stroke:rgb(255,255,255);stroke-width:1;"></line>
+                <line x1="10" y1="310" x2="1160" y2="310" style="stroke:rgb(255,255,255);stroke-width:1;"></line>
+                <line x1="10" y1="365" x2="1160" y2="365" style="stroke:rgb(255,255,255);stroke-width:1;"></line>
+                <line x1="10" y1="420" x2="1160" y2="420" style="stroke:rgb(255,255,255);stroke-width:1;"></line>
+                <line x1="10" y1="475" x2="1160" y2="475" style="stroke:rgb(255,255,255);stroke-width:1;"></line>
+                <line x1="10" y1="530" x2="1160" y2="530" style="stroke:rgb(255,255,255);stroke-width:1;"></line>
+            </svg>
         </div>
     </div>
 </template>
@@ -23,7 +35,8 @@
         name: "algoMap",
         components: {Point},
         data: {
-          sortedProblems: []
+            sortedProblems: [],
+            categoryNum: null
         },
         computed: {
             ...mapGetters([
@@ -54,6 +67,7 @@
                     return b['value'].length - a['value'].length;
                 });
             // console.log(this.sortedProblems);
+            this.categoryNum = this.sortedProblems.length;
         }
     }
 
@@ -68,8 +82,9 @@
     const JsonToArray = (data) => {
         let array = [];
         Object.keys(data).forEach(key => {
-           array.push({ 'category': key, 'value':data[key]})
-            if(array.length === 10) { return array; }
+            if(array.length <= 9) {
+                array.push({ 'category': key, 'value':data[key]});
+            }
         });
         return array;
     }
@@ -95,9 +110,11 @@
         display: flex;
         height: 70vh;
         flex-direction: row;
+        padding-left: 20px;
+        padding-right: 20px;
     }
     #category {
-        width: 150px;
+        width: 180px;
         font-size: 12px;
 
     }
@@ -107,7 +124,6 @@
 
     .section1 {
         height: 100%;
-        border: 1px solid white;
         margin: 5px;
         display: flex;
         flex-direction: column;
