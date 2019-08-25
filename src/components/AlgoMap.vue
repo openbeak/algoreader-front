@@ -78,7 +78,7 @@
                 this.$store.commit('setClickedInfo', problemInfo);
             },
             writeDate(time) {
-                return '20'+parseInt(time/1000000)+'.'+(parseInt(time/10000)%100)+'.'+(parseInt(time/100)%100);
+                return '20'+parseInt(time/1000000)+'.'+parseInt(parseInt(time%1000000)/10000)+'.'+parseInt(parseInt(time%10000)/100);
             },
         },
         beforeUpdate() {
