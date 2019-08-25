@@ -11,8 +11,8 @@ export const store = new Vuex.Store({
         showInfo: false,
         clickedNum: null,
         clickedInfo: {},
-        clickedLeftPos: null
-
+        clickedLeftPos: null,
+        recommend: null
     },
     mutations: {
         setUserId(state, payload) {
@@ -35,6 +35,9 @@ export const store = new Vuex.Store({
         },
         setClickedLeftPos(state, payload) {
             state.clickedLeftPos = payload;
+        },
+        setRecommend(state, payload){
+            state.recommend = payload;
         }
     },
     actions: {
@@ -64,6 +67,9 @@ export const store = new Vuex.Store({
         },
         getClickedLeftPos: state => {
             return state.clickedLeftPos;
+        },
+        getRecommend: state => {
+            return state.recommend;
         }
     }
 });
