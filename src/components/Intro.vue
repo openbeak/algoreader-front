@@ -5555,12 +5555,21 @@
         dummy3[i]['time'] = parseInt(parseInt(dummy3[i]['time'])/100);
     }
 
+    const recommendDommy=[
+        {"number":1920,"name":"수 찾기","category":"이분 탐색","time":null,"collectCount":6757,"submitCount":37889,"collectRate":27.975},
+        {"number":1924,"name":"2007년","category":"구현","time":null,"collectCount":23169,"submitCount":63028,"collectRate":44.469},
+        {"number":2178,"name":"미로 탐색","category":"BFS","time":null,"collectCount":11884,"submitCount":53826,"collectRate":34.017},
+        {"number":2741,"name":"N 찍기","category":"출력","time":null,"collectCount":37011,"submitCount":99331,"collectRate":45.564},
+        {"number":11053,"name":"가장 긴 증가하는 부분 수열","category":"다이나믹 프로그래밍","time":null,"collectCount":8464,"submitCount":33326,"collectRate":37.006}
+    ]; 
+
     export default {
         name: "Intro",
         methods: {
             submitId: function () {
                 this.$store.commit('setUserId', this.userId);
                 this.$store.commit('setSolvedProblems', dummy3);
+                this.$store.commit('setRecommend', recommendDommy);
                 window.scrollTo({
                     top: document.body.scrollHeight,
                     left: 0,
