@@ -1,19 +1,19 @@
 <template>
-    <div class="dot" v-bind:class="num" v-bind:style="{left: left, backgroundColor: color, opacity: opacity}" v-on:click="detail(number, left, colorIdx)"></div>
+    <div v-bind:class="'dot'+number" v-bind:style="{left: left, backgroundColor: color, opacity: opacity, position: 'absolute', width: '18px', height: '18px', borderRadius: '50%', display: 'inline-block', marginTop: '19px'}" v-on:click="detail(number, left, colorIdx)"></div>
 </template>
 
 <script>
     import { mapGetters } from 'vuex';
-    // import anime from 'animejs';
+    import anime from 'animejs';
 
     export default {
         name: "Point",
         data: {
             time: null,
-            left: '200px',
+            left: '250px',
             color: '',
             opacity: '',
-            number: '',
+            number: ''
         },
         methods: {
             detail(number, left, idx) {
@@ -24,31 +24,34 @@
         computed: {
             ...mapGetters([
                 'getMaxTime',
-                'getMinTime'
+                'getMinTime',
             ]),
             num: function () {
                 return this.number;
             }
         },
         beforeMount() {
-            // 비율을 계산해서 점을 이동시켜 줌
-            const min = TimeStampNumChange(this.getMinTime);
-            const max = TimeStampNumChange(this.getMaxTime);
-            this.time = TimeStampNumChange(this.info.time);
-            this.left = 280+1000*leftProportion(min,max,this.time)+'px'
             // console.log(this.info.number);
             // 색상을 인덱스에 따라 구분
             this.color = indexColor(this.colorIdx);
             this.opacity = 1-this.info.collectRate/100;
             this.number = this.info.number;
-
-            // anime({
-            //     targets: '.'+this.number,
-            //     translateX: 280+1000*leftProportion(min,max,this.time),
-            //     duration: 3000
-            // });
+            console.log('.dot'+this.info.number);
         },
         mounted() {
+            // 비율을 계산해서 점을 이동시켜 줌
+            const min = TimeStampNumChange(this.getMinTime);
+            const max = TimeStampNumChange(this.getMaxTime);
+            this.time = TimeStampNumChange(this.info.time);
+            // this.left = 280+1000*leftProportion(min,max,this.time)+'px'
+
+            anime({
+                targets: '.dot'+this.info.number,
+                translateX: 1100*leftProportion(min,max,this.time),
+                duration: 2500,
+                delay: anime.stagger(500, {start: 1500}),
+                easing: 'easeInOutSine'
+            });
         },
         beforeUpdate() {
         },
@@ -81,12 +84,4 @@
 </script>
 
 <style scoped>
-    .dot {
-        position: absolute;
-        width: 18px;
-        height: 18px;
-        border-radius: 50%;
-        display: inline-block;
-        margin-top: 19px;
-    }
 </style>

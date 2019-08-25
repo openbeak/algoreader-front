@@ -11,17 +11,17 @@
                     <Point v-for="p in pb['value']" :info="p" :colorIdx="index" @getClickedInfo="getInfo"/>
                 </div>
             </div>
-            <svg width="1200" height="550" style="display: none">
-                <line x1="10" y1="34" x2="1160" y2="34" style="stroke:rgb(255,255,255);stroke-width:1;"></line>
-                <line x1="10" y1="88" x2="1160" y2="88" style="stroke:rgb(255,255,255);stroke-width:1;"></line>
-                <line x1="10" y1="142" x2="1160" y2="142" style="stroke:rgb(255,255,255);stroke-width:1;"></line>
-                <line x1="10" y1="198" x2="1160" y2="198" style="stroke:rgb(255,255,255);stroke-width:1;"></line>
-                <line x1="10" y1="253" x2="1160" y2="253" style="stroke:rgb(255,255,255);stroke-width:1;"></line>
-                <line x1="10" y1="310" x2="1160" y2="310" style="stroke:rgb(255,255,255);stroke-width:1;"></line>
-                <line x1="10" y1="365" x2="1160" y2="365" style="stroke:rgb(255,255,255);stroke-width:1;"></line>
-                <line x1="10" y1="419" x2="1160" y2="419" style="stroke:rgb(255,255,255);stroke-width:1;"></line>
-                <line x1="10" y1="477" x2="1160" y2="477" style="stroke:rgb(255,255,255);stroke-width:1;"></line>
-                <line x1="10" y1="529" x2="1160" y2="529" style="stroke:rgb(255,255,255);stroke-width:1;"></line>
+            <svg width="1200" height="530" style="display: none">
+                <line x1="0" y1="34" x2="1160" y2="34" style="stroke:rgb(255,255,255);stroke-width:1;"></line>
+                <line x1="0" y1="88" x2="1160" y2="88" style="stroke:rgb(255,255,255);stroke-width:1;"></line>
+                <line x1="0" y1="142" x2="1160" y2="142" style="stroke:rgb(255,255,255);stroke-width:1;"></line>
+                <line x1="0" y1="198" x2="1160" y2="198" style="stroke:rgb(255,255,255);stroke-width:1;"></line>
+                <line x1="0" y1="253" x2="1160" y2="253" style="stroke:rgb(255,255,255);stroke-width:1;"></line>
+                <line x1="0" y1="310" x2="1160" y2="310" style="stroke:rgb(255,255,255);stroke-width:1;"></line>
+                <line x1="0" y1="365" x2="1160" y2="365" style="stroke:rgb(255,255,255);stroke-width:1;"></line>
+                <line x1="0" y1="419" x2="1160" y2="419" style="stroke:rgb(255,255,255);stroke-width:1;"></line>
+                <line x1="0" y1="477" x2="1160" y2="477" style="stroke:rgb(255,255,255);stroke-width:1;"></line>
+                <line x1="0" y1="529" x2="1160" y2="529" style="stroke:rgb(255,255,255);stroke-width:1;"></line>
             </svg>
         </div>
     </div>
