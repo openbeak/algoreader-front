@@ -1,6 +1,15 @@
 <template>
     <div id="algoMap">
-        <p id="userId">{{this.getUserId}}</p>
+    <div class="userCustom">
+        <div id="userId">{{this.getUserId}}</div>
+        <div class="container">
+            <div id ="recommendText">{{this.showRecommend?"추천 문제":""}}</div>
+            <div class="recommendBox">
+                <Recommend v-for="pb in this.recommendProblems" :info="pb"></Recommend>
+            </div>
+        </div>
+    </div>
+
         <div v-if="getShowInfo" id="clickedProblem"><b style="font-size: 16px">{{getClickedInfo.name}}</b> {{getClickedInfo.number}}<br>{{getClickedInfo.category}} {{getClickedInfo.collectRate}}% {{writeDate(getClickedInfo.time)}}</div>
         <div id="mapArea">
             <div id="category" class="section1">
@@ -30,13 +39,16 @@
 <script>
     import { mapGetters } from 'vuex';
     import Point from "./Point";
+    import Recommend from "./Recommend"
 
     export default {
         name: "algoMap",
-        components: {Point},
+        components: {Point, Recommend},
         data: {
             sortedProblems: [],
-            categoryNum: null
+            categoryNum: null,
+            recommendProblems: [],
+            showRecommend:false
         },
         computed: {
             ...mapGetters([
@@ -46,6 +58,7 @@
                 'getClickedNum',
                 'getClickedInfo',
                 'getClickedLeftPos',
+                'getRecommend'
                 'getClickedIndex'
             ])
         },
@@ -90,6 +103,8 @@
                 });
             // console.log(this.sortedProblems);
             this.categoryNum = this.sortedProblems.length;
+            this.recommendProblems = this.getRecommend;
+            this.showRecommend = true;
             document.getElementById('clickedProblem').style.backgroundColor = indexColor(this.getClickedIndex);
         }
     }
@@ -145,9 +160,15 @@
         color: white;
     }
     #userId {
-        margin-top: 92px;
-        margin-left: 150px;
+        float: left;
+        color: #27f0dc;
+        width: 200px;
+        margin-right: 0;
+        letter-spacing: 3px;
+        font-weight: bold;
         text-align: left;
+        margin-top: 92px;
+        margin-left: 100px;
         font-size: 20px;
         margin-bottom: 40px;
     }
@@ -201,5 +222,26 @@
         display: flex;
         flex-direction: row;
     }
-
+    .recommendBox{
+        display: inline-flex;
+    }
+    .imageUser{
+        margin-top: 10px;
+    }
+    .container{
+        margin-right: 30px;
+        margin-top: 42px;
+        margin-bottom: 40px;
+        float: right;
+    }
+    .userCustom{
+        display: inline-block;
+        width: 100%;
+    }    
+    .recommendText{
+        font-size: 12px;
+        margin-left: 12px;
+        text-align: left;
+        margin-bottom: 10px;
+    }
 </style>
