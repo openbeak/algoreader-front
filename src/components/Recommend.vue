@@ -1,6 +1,6 @@
 <template>
     <!-- <div class = "recommend"><span>{{ number }}</span></div> -->
-    <div class = "recommend" @click="goToLocation()"><span>{{ this.number }}</span></div>
+    <div class = "recommend" @click="goToLocation()" :style="styleObject" ><span>{{ this.number }}</span></div>
 </template>
 
 <script>
@@ -10,19 +10,22 @@
         name: "algoMap",
         data: {
             number: '',
-            link: ''
+            link: '',
         },
         props: ['info'],
         methods: {
             goToLocation : function(){
-                window.open = this.link;
+                window.open(this.link);
             }
         },
         beforeMount(){
             this.number = this.info.number;
             this.link = 'https://www.acmicpc.net/problem/'+this.info.number;
+        },
+        beforeCreate() {
+
         }
-    }
+}
 
 </script>
 
@@ -43,7 +46,7 @@
         font-weight: bold;
     }
     .recommend:hover {
-        background-color: random(['#f0c54d', '#f0eb4d', '#bdf056', '#87f056', '#56f082', '#27f0dc', '#2ed3e6', '#2abcf0', '#3560f0', '#353bf0'])
+        background-color: rgb(46, 211, 230, 0.9);
     }
     
 </style>

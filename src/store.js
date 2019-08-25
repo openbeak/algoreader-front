@@ -12,7 +12,7 @@ export const store = new Vuex.Store({
         clickedNum: null,
         clickedInfo: {},
         clickedLeftPos: null,
-        recommend: null
+        recommend: null,
         clickedIndex: null
     },
     mutations: {
