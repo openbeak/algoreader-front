@@ -75,7 +75,7 @@
         else if(index === 7) { return '#2abcf0'}
         else if(index === 8) { return '#3560f0'}
         else if(index === 9) { return '#353bf0'}
-        else return '#0000000'
+        else return '#000000'
     }
 
     const TimeStampNumChange = (num) => {
