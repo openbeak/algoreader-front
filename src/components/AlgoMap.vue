@@ -1,7 +1,7 @@
 <template>
     <div id="algoMap">
-        <h1 style="margin-top: 0; padding-top: 30px;">This is Algorithm Map</h1>
-        <h2>ID : {{this.getUserId}}</h2>
+<!--        <h1 style="margin-top: 0; padding-top: 30px;">This is Algorithm Map</h1>-->
+        <p id="userId">{{this.getUserId}}</p>
         <div id="mapArea">
             <div id="category" class="section1">
                 <div v-for="(pb, index) in this.sortedProblems" class="section2 category" style="text-align: left;">{{index+1}} : {{pb['category']}}</div>
@@ -11,17 +11,17 @@
                     <Point v-for="p in pb['value']" :info="p" :colorIdx="index"/>
                 </div>
             </div>
-            <svg width="1200" height="600">
-                <line x1="10" y1="35" x2="1160" y2="35" style="stroke:rgb(255,255,255);stroke-width:1;"></line>
-                <line x1="10" y1="90" x2="1160" y2="90" style="stroke:rgb(255,255,255);stroke-width:1;"></line>
-                <line x1="10" y1="145" x2="1160" y2="145" style="stroke:rgb(255,255,255);stroke-width:1;"></line>
-                <line x1="10" y1="200" x2="1160" y2="200" style="stroke:rgb(255,255,255);stroke-width:1;"></line>
-                <line x1="10" y1="255" x2="1160" y2="255" style="stroke:rgb(255,255,255);stroke-width:1;"></line>
+            <svg width="1200" height="550" style="display: none">
+                <line x1="10" y1="34" x2="1160" y2="34" style="stroke:rgb(255,255,255);stroke-width:1;"></line>
+                <line x1="10" y1="88" x2="1160" y2="88" style="stroke:rgb(255,255,255);stroke-width:1;"></line>
+                <line x1="10" y1="142" x2="1160" y2="142" style="stroke:rgb(255,255,255);stroke-width:1;"></line>
+                <line x1="10" y1="198" x2="1160" y2="198" style="stroke:rgb(255,255,255);stroke-width:1;"></line>
+                <line x1="10" y1="253" x2="1160" y2="253" style="stroke:rgb(255,255,255);stroke-width:1;"></line>
                 <line x1="10" y1="310" x2="1160" y2="310" style="stroke:rgb(255,255,255);stroke-width:1;"></line>
                 <line x1="10" y1="365" x2="1160" y2="365" style="stroke:rgb(255,255,255);stroke-width:1;"></line>
-                <line x1="10" y1="420" x2="1160" y2="420" style="stroke:rgb(255,255,255);stroke-width:1;"></line>
-                <line x1="10" y1="475" x2="1160" y2="475" style="stroke:rgb(255,255,255);stroke-width:1;"></line>
-                <line x1="10" y1="530" x2="1160" y2="530" style="stroke:rgb(255,255,255);stroke-width:1;"></line>
+                <line x1="10" y1="419" x2="1160" y2="419" style="stroke:rgb(255,255,255);stroke-width:1;"></line>
+                <line x1="10" y1="477" x2="1160" y2="477" style="stroke:rgb(255,255,255);stroke-width:1;"></line>
+                <line x1="10" y1="529" x2="1160" y2="529" style="stroke:rgb(255,255,255);stroke-width:1;"></line>
             </svg>
         </div>
     </div>
@@ -50,6 +50,7 @@
         beforeUpdate() {
             // this.sortedProblems.sort((a) =>{return a['time'];});
             //console.log(this.getSolvedProblems);
+            document.getElementsByTagName('svg')[0].style.display = 'block';
             const sorting = this.getSolvedProblems // 시간 순서대로 오름차순 정렬
                 .sort((a,b) => {
                     return a['time']-b['time'];
@@ -102,10 +103,19 @@
 <style scoped>
     #algoMap {
         height: 100vh;
-        background-color: #0d2940;
+        background-image: url("../assets/background-graph.png");
+        background-size: 100% 100%;
         border-top: 1px solid white;
         color: white;
     }
+    #userId {
+        margin-top: 92px;
+        margin-left: 150px;
+        text-align: left;
+        font-size: 20px;
+        margin-bottom: 80px;
+    }
+
     #mapArea {
         display: flex;
         height: 70vh;
@@ -138,7 +148,6 @@
     .category {
         flex-grow: 1;
         justify-content: center;
-
     }
 
     .points {

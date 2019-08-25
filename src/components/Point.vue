@@ -1,35 +1,59 @@
 <template>
-    <div class="dot" v-bind:style="{left: left, backgroundColor: color, opacity: opacity}"></div>
+    <div class="dot" v-bind:class="num" v-bind:style="{left: left, backgroundColor: color, opacity: opacity}" v-on:click="detail(number)"></div>
 </template>
 
 <script>
     import { mapGetters } from 'vuex';
+    import anime from 'animejs';
 
     export default {
         name: "Point",
         data: {
             time: null,
-            left: '',
+            left: '200px',
             color: '',
-            opacity: ''
+            opacity: '',
+            number: '',
+        },
+        methods: {
+            detail() {
+
+            }
         },
         props: ['info','colorIdx'],
         computed: {
             ...mapGetters([
                 'getMaxTime',
                 'getMinTime'
-            ])
+            ]),
+            num: function () {
+                return this.number;
+            }
         },
         beforeMount() {
+            // 비율을 계산해서 점을 이동시켜 줌
             const min = TimeStampNumChange(this.getMinTime);
             const max = TimeStampNumChange(this.getMaxTime);
             this.time = TimeStampNumChange(this.info.time);
-            // 비율을 계산해서 점을 이동시켜 줌
-            this.left = 280+1000*leftProportion(min,max,this.time)+'px';
+            this.left = 280+1000*leftProportion(min,max,this.time)+'px'
+
             // 색상을 인덱스에 따라 구분
             this.color = indexColor(this.colorIdx);
             this.opacity = 1-this.info.collectRate/100;
+            this.number = this.info.number;
+
+            // anime({
+            //     targets: '.'+this.number,
+            //     translateX: 280+1000*leftProportion(min,max,this.time),
+            //     duration: 3000
+            // });
         },
+        mounted() {
+        },
+        beforeUpdate() {
+        },
+        updated() {
+        }
     }
 
     // 최댓값이면 1, 최솟값이면 0, 그 사이에서 비율만큼 소수를 반환하는 메소드
@@ -63,6 +87,6 @@
         height: 18px;
         border-radius: 50%;
         display: inline-block;
-        margin-top: 21px;
+        margin-top: 19px;
     }
 </style>

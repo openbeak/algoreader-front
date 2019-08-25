@@ -1,9 +1,9 @@
 <template>
     <div id="intro">
-        <p id="title"><b>Algoreader</b><br>Be a leader by Reading Algorithm</p>
+<!--        <p id="title"><b>Algoreader</b><br>Be a leader by Reading Algorithm</p>-->
         <div id="inputSection">
             <div style="display: flex; flex-direction: row;">
-                <input v-model="userId" placeholder="write your id">
+                <input v-model="userId" placeholder="Please Enter your id">
                 <button v-on:click="submitId">Submit</button>
             </div>
             <div>
@@ -762,7 +762,7 @@
 
 <style scoped>
     #intro {
-        background-image: url("../assets/background.png");
+        background-image: url("../assets/background-main.png");
         background-size: cover;
         height: 100vh;
     }
@@ -783,7 +783,7 @@
         flex-grow: 1;
         padding: 10px;
         border: 1px solid white;
-        background-color: #f9a1ba;
+        background-color: #2ed3e6;
         text-align: center;
         font-size: 16px;
         color: #1c1d20;
@@ -805,9 +805,9 @@
 
     #inputSection {
         position: absolute;
-        left: 63%;
-        top: 75%;
-        width: 420px;
+        left: 38%;
+        top: 47%;
+        width: 360px;
         height: 300px;
 
     }
@@ -817,8 +817,8 @@
         border: 0;
         margin-top: 10px;
         background-color: transparent;
-        text-align: left;
-        font-size: 16px;
+        text-align: center;
+        font-size: 14px;
         color: #c6c6c6;
     }
 
