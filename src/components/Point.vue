@@ -1,5 +1,5 @@
 <template>
-    <div class="dot" v-bind:class="num" v-bind:style="{left: left, backgroundColor: color, opacity: opacity}" v-on:click="detail(number)"></div>
+    <div class="dot" v-bind:class="num" v-bind:style="{left: left, backgroundColor: color, opacity: opacity}" v-on:click="detail(number, left)"></div>
 </template>
 
 <script>
@@ -16,8 +16,8 @@
             number: '',
         },
         methods: {
-            detail(number) {
-                this.$emit('getClickedInfo', number);
+            detail(number, left) {
+                this.$emit('getClickedInfo', number, left);
             }
         },
         props: ['info','colorIdx'],
@@ -36,7 +36,7 @@
             const max = TimeStampNumChange(this.getMaxTime);
             this.time = TimeStampNumChange(this.info.time);
             this.left = 280+1000*leftProportion(min,max,this.time)+'px'
-            console.log(this.info.number);
+            // console.log(this.info.number);
             // 색상을 인덱스에 따라 구분
             this.color = indexColor(this.colorIdx);
             this.opacity = 1-this.info.collectRate/100;

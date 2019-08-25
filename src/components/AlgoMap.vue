@@ -2,7 +2,7 @@
     <div id="algoMap">
 <!--        <h1 style="margin-top: 0; padding-top: 30px;">This is Algorithm Map</h1>-->
         <p id="userId">{{this.getUserId}}</p>
-        <div v-if="showInfo" id="clickedProblem">{{clickedInfo.name}} {{clickedInfo.collectRate}}% {{clickedInfo.category}}</div>
+        <div v-if="getShowInfo" id="clickedProblem">{{getClickedInfo.name}} {{getClickedInfo.collectRate}}% {{getClickedInfo.category}}</div>
         <div id="mapArea">
             <div id="category" class="section1">
                 <div v-for="(pb, index) in this.sortedProblems" class="section2 category" style="text-align: left;">{{index+1}} : {{pb['category']}}</div>
@@ -38,29 +38,30 @@
         data: {
             sortedProblems: [],
             categoryNum: null,
-            clickedNum: null,
-            clickedInfo: {},
-            showInfo: false
         },
         computed: {
             ...mapGetters([
                 'getUserId',
-                'getSolvedProblems'
+                'getSolvedProblems',
+                'getShowInfo',
+                'getClickedNum',
+                'getClickedInfo',
+                'getClickedLeftPos'
             ])
         },
         methods: {
-            getInfo(message) {
-                this.clickedNum = message;
+            getInfo(num, left) {
+                this.$store.commit('setClickedNum', num);
+                this.$store.commit('setClickedLeftPos', left);
                 let problemInfo = {};
-                this.getSolvedProblems.forEach((prob) => {
-                    if(prob['number'] === this.clickedNum) {
+                let tmp = this.getSolvedProblems;
+                tmp.forEach((prob) => {
+                    if(prob['number'] === this.getClickedNum) {
                         problemInfo = prob;
                     }
                 })
-                this.clickedInfo = problemInfo;
-                console.log(this.clickedInfo);
-                this.showInfo = true;
-                console.log(this.showInfo);
+                this.$store.commit('setShowInfo',true);
+                this.$store.commit('setClickedInfo', problemInfo);
             }
         },
         beforeUpdate() {
@@ -135,6 +136,9 @@
         padding: 10px;
         color: white;
         font-size: 20px;
+        border: 1px solid white;
+        width: fit-content;
+        margin: 0 auto;
     }
     #mapArea {
         display: flex;
