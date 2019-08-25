@@ -1,5 +1,5 @@
 <template>
-    <div class="dot" v-bind:class="num" v-bind:style="{left: left, backgroundColor: color, opacity: opacity}" v-on:click="detail(number, left)"></div>
+    <div class="dot" v-bind:class="num" v-bind:style="{left: left, backgroundColor: color, opacity: opacity}" v-on:click="detail(number, left, colorIdx)"></div>
 </template>
 
 <script>
@@ -16,8 +16,8 @@
             number: '',
         },
         methods: {
-            detail(number, left) {
-                this.$emit('getClickedInfo', number, left);
+            detail(number, left, idx) {
+                this.$emit('getClickedInfo', number, left, idx);
             }
         },
         props: ['info','colorIdx'],

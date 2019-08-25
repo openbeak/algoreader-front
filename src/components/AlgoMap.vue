@@ -1,8 +1,7 @@
 <template>
     <div id="algoMap">
-<!--        <h1 style="margin-top: 0; padding-top: 30px;">This is Algorithm Map</h1>-->
         <p id="userId">{{this.getUserId}}</p>
-        <div v-if="getShowInfo" id="clickedProblem">{{getClickedInfo.name}} {{getClickedInfo.collectRate}}% {{getClickedInfo.category}}</div>
+        <div v-if="getShowInfo" id="clickedProblem"><b style="font-size: 16px">{{getClickedInfo.name}}</b> {{getClickedInfo.number}}<br>{{getClickedInfo.category}} {{getClickedInfo.collectRate}}% {{writeDate(getClickedInfo.time)}}</div>
         <div id="mapArea">
             <div id="category" class="section1">
                 <div v-for="(pb, index) in this.sortedProblems" class="section2 category" style="text-align: left;">{{index+1}} : {{pb['category']}}</div>
@@ -37,7 +36,7 @@
         components: {Point},
         data: {
             sortedProblems: [],
-            categoryNum: null,
+            categoryNum: null
         },
         computed: {
             ...mapGetters([
@@ -46,13 +45,15 @@
                 'getShowInfo',
                 'getClickedNum',
                 'getClickedInfo',
-                'getClickedLeftPos'
+                'getClickedLeftPos',
+                'getClickedIndex'
             ])
         },
         methods: {
-            getInfo(num, left) {
+            getInfo(num, left, idx) {
                 this.$store.commit('setClickedNum', num);
                 this.$store.commit('setClickedLeftPos', left);
+                this.$store.commit('setClickedIndex', idx);
                 let problemInfo = {};
                 let tmp = this.getSolvedProblems;
                 tmp.forEach((prob) => {
@@ -62,11 +63,14 @@
                 })
                 this.$store.commit('setShowInfo',true);
                 this.$store.commit('setClickedInfo', problemInfo);
-            }
+            },
+            writeDate(time) {
+                return '20'+parseInt(time/1000000)+'.'+(parseInt(time/10000)%100)+'.'+(parseInt(time/100)%100);
+            },
         },
         beforeUpdate() {
             // this.sortedProblems.sort((a) =>{return a['time'];});
-            //console.log(this.getSolvedProblems);
+            // console.log(this.getSolvedProblems);
             document.getElementsByTagName('svg')[0].style.display = 'block';
             const sorting = this.getSolvedProblems // 시간 순서대로 오름차순 정렬
                 .sort((a,b) => {
@@ -86,6 +90,7 @@
                 });
             // console.log(this.sortedProblems);
             this.categoryNum = this.sortedProblems.length;
+            document.getElementById('clickedProblem').style.backgroundColor = indexColor(this.getClickedIndex);
         }
     }
 
@@ -115,6 +120,20 @@
         });
         return json;
     }
+
+    const indexColor = (index) => {
+        if(index === 0) { return '#f0c54d'}
+        else if(index === 1) { return '#f0eb4d'}
+        else if(index === 2) { return '#bdf056'}
+        else if(index === 3) { return '#87f056'}
+        else if(index === 4) { return '#56f082'}
+        else if(index === 5) { return '#27f0dc'}
+        else if(index === 6) { return '#2ed3e6'}
+        else if(index === 7) { return '#2abcf0'}
+        else if(index === 8) { return '#3560f0'}
+        else if(index === 9) { return '#353bf0'}
+        else return '#000000'
+    }
 </script>
 
 <style scoped>
@@ -133,10 +152,12 @@
         margin-bottom: 40px;
     }
     #clickedProblem {
-        padding: 10px;
-        color: white;
-        font-size: 20px;
+        padding: 15px;
+        color: black;
+        background: #f0c54d;
+        font-size: 14px;
         border: 1px solid white;
+        border-radius: 20px;
         width: fit-content;
         margin: 0 auto;
     }
@@ -149,7 +170,7 @@
     }
     #category {
         width: 180px;
-        font-size: 12px;
+        font-size: 14px;
 
     }
     #bubbles {

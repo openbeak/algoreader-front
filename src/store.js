@@ -11,7 +11,8 @@ export const store = new Vuex.Store({
         showInfo: false,
         clickedNum: null,
         clickedInfo: {},
-        clickedLeftPos: null
+        clickedLeftPos: null,
+        clickedIndex: null
 
     },
     mutations: {
@@ -35,6 +36,9 @@ export const store = new Vuex.Store({
         },
         setClickedLeftPos(state, payload) {
             state.clickedLeftPos = payload;
+        },
+        setClickedIndex(state, payload) {
+            state.clickedIndex = payload;
         }
     },
     actions: {
@@ -64,6 +68,9 @@ export const store = new Vuex.Store({
         },
         getClickedLeftPos: state => {
             return state.clickedLeftPos;
+        },
+        getClickedIndex: state => {
+            return state.clickedIndex;
         }
     }
 });
