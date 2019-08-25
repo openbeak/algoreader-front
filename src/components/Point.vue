@@ -4,7 +4,7 @@
 
 <script>
     import { mapGetters } from 'vuex';
-    import anime from 'animejs';
+    // import anime from 'animejs';
 
     export default {
         name: "Point",
@@ -16,8 +16,8 @@
             number: '',
         },
         methods: {
-            detail() {
-
+            detail(number) {
+                this.$emit('getClickedInfo', number);
             }
         },
         props: ['info','colorIdx'],
@@ -36,7 +36,7 @@
             const max = TimeStampNumChange(this.getMaxTime);
             this.time = TimeStampNumChange(this.info.time);
             this.left = 280+1000*leftProportion(min,max,this.time)+'px'
-
+            console.log(this.info.number);
             // 색상을 인덱스에 따라 구분
             this.color = indexColor(this.colorIdx);
             this.opacity = 1-this.info.collectRate/100;

@@ -2,13 +2,14 @@
     <div id="algoMap">
 <!--        <h1 style="margin-top: 0; padding-top: 30px;">This is Algorithm Map</h1>-->
         <p id="userId">{{this.getUserId}}</p>
+        <div v-if="showInfo" id="clickedProblem">{{clickedInfo.name}} {{clickedInfo.collectRate}}% {{clickedInfo.category}}</div>
         <div id="mapArea">
             <div id="category" class="section1">
                 <div v-for="(pb, index) in this.sortedProblems" class="section2 category" style="text-align: left;">{{index+1}} : {{pb['category']}}</div>
             </div>
             <div id="bubbles" class="section1">
                 <div v-for="(pb, index) in this.sortedProblems" class="section2 points">
-                    <Point v-for="p in pb['value']" :info="p" :colorIdx="index"/>
+                    <Point v-for="p in pb['value']" :info="p" :colorIdx="index" @getClickedInfo="getInfo"/>
                 </div>
             </div>
             <svg width="1200" height="550" style="display: none">
@@ -36,7 +37,10 @@
         components: {Point},
         data: {
             sortedProblems: [],
-            categoryNum: null
+            categoryNum: null,
+            clickedNum: null,
+            clickedInfo: {},
+            showInfo: false
         },
         computed: {
             ...mapGetters([
@@ -45,7 +49,19 @@
             ])
         },
         methods: {
-
+            getInfo(message) {
+                this.clickedNum = message;
+                let problemInfo = {};
+                this.getSolvedProblems.forEach((prob) => {
+                    if(prob['number'] === this.clickedNum) {
+                        problemInfo = prob;
+                    }
+                })
+                this.clickedInfo = problemInfo;
+                console.log(this.clickedInfo);
+                this.showInfo = true;
+                console.log(this.showInfo);
+            }
         },
         beforeUpdate() {
             // this.sortedProblems.sort((a) =>{return a['time'];});
@@ -113,9 +129,13 @@
         margin-left: 150px;
         text-align: left;
         font-size: 20px;
-        margin-bottom: 80px;
+        margin-bottom: 40px;
     }
-
+    #clickedProblem {
+        padding: 10px;
+        color: white;
+        font-size: 20px;
+    }
     #mapArea {
         display: flex;
         height: 70vh;
