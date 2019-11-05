@@ -1,29 +1,7 @@
 # algoreader-front
 
-## Project setup
-```
-npm install
-```
+## 서비스 소개
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## 기술 스택
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## 데모 이미지
